@@ -114,7 +114,9 @@ section{position:relative}
 .t-com{--rot:-1.6deg;margin:-6px 0 0 -4px}
 .t-com>i{display:block;font-style:normal;background:var(--crema);color:var(--rojo);font-family:var(--epic);font-weight:800;text-transform:uppercase;font-size:clamp(40px,11vw,120px);line-height:.9;padding:.14em .26em .06em;clip-path:polygon(1% 0,100% 6%,98.5% 100%,0 93%)}
 .t-com::after{z-index:2;content:"";position:absolute;right:-14px;top:-12px;width:clamp(56px,9vw,96px);height:22px;background:rgba(255,248,230,.6);transform:rotate(28deg);box-shadow:0 1px 2px rgba(0,0,0,.08)}
-.titular-wrap{position:relative}
+.caja-wrap{position:relative}
+@keyframes sello{0%{opacity:0;transform:scale(1.5) rotate(-9deg)}100%{opacity:1;transform:scale(1) rotate(-9deg)}}
+.hero .sello{position:absolute;right:-14px;bottom:-34px;z-index:5;transform:rotate(-9deg);animation:sello .55s cubic-bezier(.2,1.6,.4,1) 1s both;font-size:clamp(14px,1.6vw,18px);--rot:-9deg;z-index:2}
 .hero-pie{position:relative;margin-top:196px;padding-bottom:70px;max-width:620px}
 .hero-caja{position:relative;background:var(--crema);color:var(--negro);padding:30px 26px 28px;max-width:620px;clip-path:polygon(0 3%,99% 0,100% 97%,1% 100%)}
 .hero-caja p{font-size:clamp(18px,2.2vw,22px);line-height:1.35;letter-spacing:-.02em}
@@ -334,9 +336,15 @@ footer small{display:block;margin-top:14px;font-size:12px;opacity:.7}
 /* ---------- Escritorio ---------- */
 @media (min-width:860px){
   :root{--gutter:40px}
-  .hero-pie{margin-top:290px}
-  .hero .pj.espid{width:220px;top:-262px;right:30px}
-  .hero-caja .reserva{width:200px;height:160px}
+  .hero>.wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);column-gap:48px;align-items:end}
+  .hero .kicker{grid-column:1/-1}
+  .titular{grid-column:1;margin-bottom:70px}
+  .t-dep b{font-size:clamp(48px,5.3vw,76px)}
+  .t-of>i{font-size:clamp(50px,5.4vw,80px)}
+  .t-com>i{font-size:clamp(44px,4.8vw,70px)}
+  .hero-pie{grid-column:2;margin-top:0;padding-top:250px;padding-bottom:70px}
+  .hero .pj.espid{width:190px;top:-218px;right:22px}
+  .hero-caja .reserva{width:136px;height:128px}
   .intro .cols{grid-template-columns:1.05fr 1fr;align-items:end;gap:50px}
   .escena{height:520px;margin:0}
   .traductor{padding:34px 34px 30px}
@@ -389,17 +397,17 @@ footer small{display:block;margin-top:14px;font-size:12px;opacity:.7}
       <span class="t-of pop d3" aria-hidden="true"><i>oferta</i></span>
       <span class="t-com pop d4" aria-hidden="true"><i>Comercial</i></span>
     </h1>
-    <div class="hero-pie">
-      <div class="elipse sello pop d3">Guía<br>gratis</div>
-      <div class="pj espid"><img class="flot" src="assets/img/espid_sit.webp" alt="" width="577" height="900"></div>
-      <div class="hero-caja rv d4">
+    <div class="hero-pie"><div class="caja-wrap">
+      <div class="pj espid"><img class="flot" src="assets/img/espid_sit.webp" alt="" width="462" height="900"></div>
+      <div class="hero-caja">
         <div class="reserva" aria-hidden="true"></div>
         <p>Guía de transformación para convertir un <b>deportista</b> en un <b>proyecto deportivo atractivo</b> para marcas auspiciantes.</p>
         <div class="acciones">
           <a class="btn rojo" href="#leer">Empezar a leer <span class="chev">»</span></a>
         </div>
       </div>
-    </div>
+    <div class="elipse sello">Guía<br>gratis</div>
+    </div></div>
   </div>
   <div class="flechas" aria-hidden="true">»</div>
 </header>
@@ -514,7 +522,7 @@ footer small{display:block;margin-top:14px;font-size:12px;opacity:.7}
     <p class="lead premisa rv">Esa palabra parte de una premisa equivocada: que el deportista es un <b>producto vacío</b> que debe maquillarse para agradar.</p>
     <div class="grid">
       <div class="ilus" aria-hidden="true">
-        <div class="pj presenta rv"><img src="assets/img/espid_present.webp" alt="" width="641" height="900"></div>
+        <div class="pj presenta rv"><img src="assets/img/espid_present.webp" alt="" width="457" height="900"></div>
       </div>
       <div class="honesto rv d1">
         <div class="kicker" style="color:var(--rojo-vivo);margin-bottom:10px">Algo más profundo y más honesto</div>
@@ -539,7 +547,7 @@ footer small{display:block;margin-top:14px;font-size:12px;opacity:.7}
       <div class="lado negociar">
         <div class="epic">Negociar</div>
         <div class="dice">“Te ofrezco una solución para tu negocio.”</div>
-        <img src="assets/img/handshake.webp" alt="Espid cerrando un trato con el ejecutivo de la marca" width="900" height="765">
+        <img src="assets/img/handshake.webp" alt="Espid cerrando un trato con el ejecutivo de la marca" width="868" height="900">
       </div>
       <div class="manija"><span>‹›</span></div>
       <input type="range" min="0" max="100" value="50" id="comp-r" aria-label="Comparar pedir y negociar">
@@ -557,7 +565,7 @@ footer small{display:block;margin-top:14px;font-size:12px;opacity:.7}
   <div class="wrap">
     <div class="num pop">
       <span class="epic">1</span>
-      <div class="pj sube"><img src="assets/img/espid_climb.webp" alt="" width="370" height="900"></div>
+      <div class="pj sube"><img src="assets/img/espid_climb.webp" alt="" width="604" height="900"></div>
     </div>
     <div class="titulo">
       <div class="kicker rv">Capítulo 1</div>
@@ -671,7 +679,7 @@ footer small{display:block;margin-top:14px;font-size:12px;opacity:.7}
       <div class="sub rv">Escríbeme por WhatsApp y revisamos tu caso.</div>
     </div>
   </div>
-  <div class="pj apunta rv d2"><img src="assets/img/espid_point.webp" alt="" width="660" height="872"></div>
+  <div class="pj apunta rv d2"><img src="assets/img/espid_point.webp" alt="" width="451" height="900"></div>
 </section>
 
 <footer>
